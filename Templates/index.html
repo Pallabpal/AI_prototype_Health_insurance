@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Detection Web App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .upload-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .form-input {
+            margin-bottom: 10px;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            color: #008000;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .intro-message {
+            color: #333333;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Predict authenticity of Insurance claim</h2>
+    <div class="upload-form">
+        <p class="intro-message">This web page is designed to predict whether an insurance claim of a customer is Fraud or Not. For that, you have to upload a CSV file with the necessary attributes related to the customer.</p>
+        <!-- Add the text file link below -->
+        <p><a href="{{ url_for('download_text') }}" class="result-link">Download Text File containing details of how to form the CSV file to upload in this webpage</a></p>
+        <form method="POST" action="/predict" enctype="multipart/form-data">
+            <input type="file" name="csv_file" class="form-input">
+            <br><br>
+            <input type="submit" value="Predict" class="submit-btn">
+        </form>
+        <p class="message">The uploaded CSV file should have 23 necessary columns with proper values.</p>
+        
+        
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+

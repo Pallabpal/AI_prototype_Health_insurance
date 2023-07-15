@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Detection Web App - Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .result-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Added to center the links */
+        }
+
+        .result-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .result-link:hover {
+            color: #ff6600;
+            text-decoration: underline;
+        }
+
+        .message {
+            color: #333333;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h2>Uploaded File: {{ input_file }}</h2>
+        <p><a href="{{ url_for('index') }}" class="result-link">Upload Another File</a></p>
+        
+        {% if output_file %}
+        <h2>Output File: <a href="{{ url_for('download_output') }}" class="result-link">Download</a></h2>
+        <p class="message">One new column named 'predicted_class' is added to the input file which takes two values, namely 'Fraud' and 'Not Fraud'.</p>
+        <p class="message">Download the file with 'predicted_class' from the link above.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
+
